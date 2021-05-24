@@ -1,0 +1,216 @@
+
+app.tsx
+
+const rooms = [
+  {
+    title: 'Room',
+    delete: 'Delete',
+    navigation: 'Create/Edit',
+  },
+  {
+    title: 'Room2',
+    delete: 'Delete2',
+    navigation: 'Nav',
+
+  },
+  {
+    title: 'Room3',
+    delete: 'Delete3',
+    navigation: 'Nav',
+
+  },
+];
+
+
+__________________________________________________________
+
+Rooms.tsx
+
+
+const Rooms = (props) => {
+  return (
+    <Card className="rooms">
+      <RoomItem
+        title={props.items[0].title}
+        delete={props.items[0].delete}
+        navigation={props.items[0].navigation}
+      />
+    <RoomItem
+        title={props.items[1].title}
+        delete={props.items[0].delete}
+        navigation={props.items[0].navigation}
+      />
+    <RoomItem
+        title={props.items[2].title}
+        delete={props.items[0].delete}
+        navigation={props.items[0].navigation}
+      />
+    </Card>
+  );
+}
+
+
+
+
+
+
+
+
+
+__________________________________________________________
+
+RoomItem.tsx
+
+return (
+
+    <Card className='room-item'>
+      <div>
+        <h2>{props.title}</h2>
+      </div>
+      <nav>
+      <ul>
+      <li>
+        <Link to='/CreateEditPage'>
+          <div className='room-item__slash'>
+            <h2>{props.navigation}</h2>
+          </div>
+        </Link>
+      </li>
+      <li>
+        <div>
+          <h2>{props.delete}</h2>
+        </div>
+      </li>
+      </ul>
+      </nav>
+
+    </Card>
+);
+}
+
+
+
+
+__________________________________________________________
+
+
+RoomItem.tsx all code
+
+import './RoomItem.css';
+import { Link } from 'react-router-dom';
+import Card from './Card';
+
+
+const RoomItem: React.FC<{ items: string[] }> = (props) => {
+
+
+  // const roomTitle = 'Room';
+  // const roomNavigation= 'Create/Edit';
+  // const roomDelete = 'Delete';
+
+
+
+  return (
+
+      <Card className='room-item'>
+        <div>
+          <h2>{props.title}</h2>
+        </div>
+        <nav>
+        <ul>
+        <li>
+          <Link to='/CreateEditPage'>
+            <div className='room-item__slash'>
+              <h2>{props.navigation}</h2>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <div>
+            <h2>{props.delete}</h2>
+          </div>
+        </li>
+        </ul>
+        </nav>
+
+      </Card>
+  );
+}
+
+
+
+
+
+
+___________________________________________________________
+
+
+app.tsx
+
+
+const roomzs = [new Roomz('blabla'), new Roomz('flfla')];
+
+
+___________________________________
+
+
+app.tsx
+
+import Roomz from 'Roomz';
+
+<div>
+  <Roomzs items={rooms} />
+</div>
+
+
+___________________________________
+
+houseroom.ts
+
+
+description: string;
+type: RoomType;
+image: Image;
+
+type RoomType = 'standard' | 'delux';
+
+interface Image {
+
+    id: string;
+    name: string;
+
+}
+
+
+___________________________________
+
+roomitem.TodosContext
+
+import { Link } from 'react-router-dom';
+
+unutar cards
+
+<nav>
+<ul>
+<li>
+  <Link to='/CreateEditPage'>
+    <div className='room-item__slash'>
+      <h2>{props.navigation}</h2>
+    </div>
+  </Link>
+</li>
+
+
+
+<li>
+  <div>
+    <h2>{props.delete}</h2>
+  </div>
+</li>
+</ul>
+</nav>
+
+__________________________________________________________
+index.tsx
+
+import { AuthContextProvider } from './store/auth-context';
